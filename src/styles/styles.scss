@@ -1,0 +1,153 @@
+* {
+  box-shadow: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat";
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  /* Add more src lines for additional font file formats if desired */
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts//Montserrat-VariableFont_wght.ttf") format("truetype");
+  /* Add more src lines for additional font file formats if desired */
+}
+
+@import url("./login.scss");
+
+.login-parent {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  .left {
+    display: flex;
+    width: 40%;
+    color: white;
+    font-size: 72px;
+    background-color: black;
+    font-weight: 700;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .right {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .right-items {
+      .head {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+      .sub-head {
+        font-size: 16px;
+      }
+      .s-buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 25px;
+        margin-top: 26px;
+        > div {
+          color: #858585;
+          font-size: 12px;
+          background-color: #ffffff;
+          padding: 6px 8px;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          width: 180px;
+          cursor: pointer;
+        }
+      }
+      .blue-text {
+        color: #346bd4;
+        font-size: 16px;
+        margin: -5px 0;
+        cursor: pointer;
+      }
+      .register {
+        margin-top: 20px;
+        font-size: 16px;
+        text-align: center;
+      }
+      .creds {
+        background-color: #ffffff;
+        border-radius: 20px;
+        margin-top: 25px;
+        padding: 30px;
+        color: #000000;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .fields {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          > input {
+            background-color: #f5f5f5;
+            height: 40px;
+            width: -webkit-fill-available;
+            border: none;
+            border-radius: 10px;
+            padding: 0 16px;
+            outline: none;
+            font-size: 16px;
+          }
+        }
+        .submit {
+          color: #ffffff;
+          width: 100%;
+          height: 40px;
+          background-color: #000000;
+          margin: auto;
+          text-align: center;
+          border-radius: 10px;
+          font-weight: 700;
+          padding: 10px 0px;
+          cursor: pointer;
+        }
+      }
+      .logo {
+        width: 12px;
+        height: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  /* CSS rules for screens with a maximum width of 600 pixels */
+  .login-parent {
+    flex-direction: column;
+    .left {
+      width: 100%;
+      height: 20vw;
+    }
+    .right {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .right-items {
+    width: 87%;
+  }
+}

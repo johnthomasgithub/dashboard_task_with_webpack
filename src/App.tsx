@@ -1,13 +1,18 @@
-import "./styles/styles.css";
-// import Img from "./assets/images/sample.png";
-// import svg from "./assets/images/parachuting-1781587.svg";
-import CLickCounter from "./componnets/CLickCOunter";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+// import Auth from "./pages/Autth";
 
-export const App = () => {
+const App = () => {
   return (
-    <div>
-      <div className="head">React webpack template</div>
-      <CLickCounter />
-    </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={ <Login />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      </Router>
   );
 };
+
+export default App;
