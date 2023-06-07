@@ -1,10 +1,34 @@
 import React, { useState } from "react";
 import Google from "../assets/images/google.svg";
 import Apple from "../assets/images/apple.svg";
-
+import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
+import axios from "axios";
+import { useNavigate } from "react-router";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const login = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      console.log(tokenResponse);
+      navigate('/home')
+
+      try {
+        const data = await axios.get(
+          "https://www.googleapis.com/oauth2/v3/userinfo",
+          {
+            headers: {
+              Authorization: `Bearer ${tokenResponse.access_token}`,
+            },
+          }
+        );
+        console.log(data);
+      } catch (err) {
+        console.log(err);
+      }
+    },
+  });
   return (
     <div className="login-parent">
       <div className="left">Board.</div>
@@ -13,7 +37,17 @@ const Login = () => {
           <div className="head">Sign In</div>
           <div className="sub-head">Sign in to your account</div>
           <div className="s-buttons">
-            <div>
+            {/* <GoogleLogin
+              onSuccess={(credentialResponse: any) => {
+                // console.log(jwt_decode(credentialResponse.credential));
+
+                console.log(credentialResponse);
+              }}
+              onError={() => {
+                console.log("Login Failed");
+              }}
+            /> */}
+            <div onClick={() => login()}>
               {" "}
               <img className="logo" src={Google}></img>Sign in with Google
             </div>
