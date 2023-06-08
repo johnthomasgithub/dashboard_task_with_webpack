@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Google from "../assets/images/google.svg";
 import Apple from "../assets/images/apple.svg";
 import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
@@ -12,7 +12,7 @@ const Login = () => {
   const login = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       console.log(tokenResponse);
-      navigate('/home')
+      navigate("/home");
 
       try {
         const data = await axios.get(
@@ -29,6 +29,11 @@ const Login = () => {
       }
     },
   });
+
+  useEffect(() => {
+    navigate("/home");
+  }, []);
+
   return (
     <div className="login-parent">
       <div className="left">Board.</div>

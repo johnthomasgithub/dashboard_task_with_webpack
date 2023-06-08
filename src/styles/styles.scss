@@ -132,6 +132,71 @@ body,
   }
 }
 
+.sidebar {
+  display: flex;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  padding: 40px;
+  gap: 60px;
+  background-color: #dddddd;
+  .routes {
+    border-radius: 30px;
+    padding: 30px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    .brand {
+      color: #ffffff;
+      font-size: 36px;
+      font-weight: 700;
+      margin: 10px 0;
+    }
+  }
+  .link-parent {
+    text-decoration: none;
+    .nav-link {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      width: 158px;
+      .icons {
+        height: 18px;
+        width: 18px;
+        display: flex;
+      }
+      .name {
+        font-weight: 400;
+        color: #ffffff;
+        font-size: 18px;
+      }
+      .bold {
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.main-container {
+  width: -webkit-fill-available;
+  padding: 10px 0px 0px 0px;
+}
+
+.header-parent {
+  .heading {
+    font-weight: 700;
+    font-size: 24px;
+    color: #000000;
+  }
+  .search-profile {
+    .search {
+    }
+
+    .profile {
+    }
+  }
+}
+
 @media screen and (max-width: 700px) {
   /* CSS rules for screens with a maximum width of 600 pixels */
   .login-parent {
