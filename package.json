@@ -21,6 +21,7 @@
     "axios": "^1.4.0",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.8.1",
+    "echarts-for-react": "^3.0.2",
     "gapi-script": "^1.2.0",
     "html-webpack-plugin": "^5.5.1",
     "jwt-decode": "^3.1.2",

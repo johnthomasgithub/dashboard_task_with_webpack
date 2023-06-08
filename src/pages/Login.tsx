@@ -12,10 +12,10 @@ const Login = () => {
   const login = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       console.log(tokenResponse);
-      navigate("/home");
+      navigate("/home/dashboard");
 
       try {
-        const data = await axios.get(
+        const data: any = await axios.get(
           "https://www.googleapis.com/oauth2/v3/userinfo",
           {
             headers: {
@@ -24,6 +24,7 @@ const Login = () => {
           }
         );
         console.log(data);
+        localStorage.setItem("profile", data.data.picture);
       } catch (err) {
         console.log(err);
       }
@@ -31,7 +32,7 @@ const Login = () => {
   });
 
   useEffect(() => {
-    navigate("/home");
+    // navigate("/home");
   }, []);
 
   return (
@@ -42,16 +43,6 @@ const Login = () => {
           <div className="head">Sign In</div>
           <div className="sub-head">Sign in to your account</div>
           <div className="s-buttons">
-            {/* <GoogleLogin
-              onSuccess={(credentialResponse: any) => {
-                // console.log(jwt_decode(credentialResponse.credential));
-
-                console.log(credentialResponse);
-              }}
-              onError={() => {
-                console.log("Login Failed");
-              }}
-            /> */}
             <div onClick={() => login()}>
               {" "}
               <img className="logo" src={Google}></img>Sign in with Google
@@ -82,7 +73,17 @@ const Login = () => {
               ></input>
             </div>
             <div className="blue-text">Forgot password?</div>
-            <div className="submit">Sign In</div>
+            <div
+              className="submit"
+              style={
+                email.length > 1 && password.length > 1
+                  ? {}
+                  : { opacity: "0.3", pointerEvents: "none" }
+              }
+              onClick={() => navigate("/home/dashboard")}
+            >
+              Sign In
+            </div>
           </div>
           <div className="register">
             Don’t have an account?{" "}

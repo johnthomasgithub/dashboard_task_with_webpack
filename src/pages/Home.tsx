@@ -51,11 +51,23 @@ const Home = () => {
       selectedTab={selectedTab}
     >
       <Routes>
-        <Route path="/dashboard/*" element={<Dash selectedTab={selectedTab}  />} />
-        <Route path="/transactions/*" element={<Trans selectedTab={selectedTab} />} />
-        <Route path="/schedules/*" element={<Schedules selectedTab={selectedTab} />} />
+        <Route
+          path="/dashboard/*"
+          element={<Dash selectedTab={selectedTab} />}
+        />
+        <Route
+          path="/transactions/*"
+          element={<Trans selectedTab={selectedTab} />}
+        />
+        <Route
+          path="/schedules/*"
+          element={<Schedules selectedTab={selectedTab} />}
+        />
         <Route path="/users/*" element={<Users selectedTab={selectedTab} />} />
-        <Route path="/settings/*" element={<Settings selectedTab={selectedTab} />} />
+        <Route
+          path="/settings/*"
+          element={<Settings selectedTab={selectedTab} />}
+        />
       </Routes>
     </SideBar>
   );

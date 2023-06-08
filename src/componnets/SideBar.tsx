@@ -26,6 +26,10 @@ const SideBar = ({ routes, children, setSelectedTab, selectedTab }: any) => {
             </NavLink>
           );
         })}
+       <div className="help-section" >
+       <div>Help</div>
+        <div>Contact Us</div>
+       </div>
       </section>
       <main className="main-container">{children}</main>
     </div>

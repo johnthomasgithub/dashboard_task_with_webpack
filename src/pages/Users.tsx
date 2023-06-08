@@ -1,10 +1,15 @@
-import React from 'react'
-import Header from '../componnets/Header/Header'
+import React from "react";
+import Header from "../componnets/Header/Header";
+import UnderConstruction from "../componnets/UnderConstruction";
 
-const Users = ({selectedTab} : any) => {
+const Users = ({ selectedTab }: any) => {
   return (
-    <div><Header selectedTab={selectedTab} /></div>
-  )
-}
+    <div>
+      <Header selectedTab={selectedTab} />
+      <UnderConstruction />
 
-export default Users
+    </div>
+  );
+};
+
+export default Users;
