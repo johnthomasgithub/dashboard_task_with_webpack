@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { lazy, useState } from "react";
 import {
   DashboardIcon,
   SchedulesIcon,
@@ -7,13 +7,20 @@ import {
   UsersIcon,
 } from "../componnets/utils/Icons";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SideBar from "../componnets/SideBar";
-import Dash from "./Dash";
-import Trans from "./Trans";
 
-import Schedules from "./Schedules";
-import Users from "./Users";
-import Settings from "./Settings";
+const SideBar = lazy(() => import("../componnets/SideBar"));
+const Dash = lazy(() => import("./Dash"));
+const Trans = lazy(() => import("./Trans"));
+const Schedules = lazy(() => import("./Schedules"));
+const Users = lazy(() => import("./Users"));
+const Settings = lazy(() => import("./Settings"));
+
+// import SideBar from "../componnets/SideBar";
+// import Dash from "./Dash";
+// import Trans from "./Trans";
+// import Schedules from "./Schedules";
+// import Users from "./Users";
+// import Settings from "./Settings";
 const Home = () => {
   const [selectedTab, setSelectedTab] = useState("Dashboard");
   const routes = [
